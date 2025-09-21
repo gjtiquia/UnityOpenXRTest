@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputActionAsset: {fileID: -944628639613478452, guid: 5ff8ef1ce5f7412408e81250491e9f73, type: 3}
   _keyboardXTranslateAction: {fileID: -2435995061748527091, guid: 5ff8ef1ce5f7412408e81250491e9f73, type: 3}
-  _keyboardYTranslateAction: {fileID: 4091624078112751379, guid: 5ff8ef1ce5f7412408e81250491e9f73, type: 3}
+  _keyboardYTranslateAction: {fileID: 8957443236229058949, guid: 5ff8ef1ce5f7412408e81250491e9f73, type: 3}
   _leftControllerMoveAction: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
