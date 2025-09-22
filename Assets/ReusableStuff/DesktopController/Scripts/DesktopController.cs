@@ -67,10 +67,10 @@ public class DesktopController : MonoBehaviour
         Vector2 mouseDelta = _mouseDeltaAction.action.ReadValue<Vector2>();
 
         // Yaw affects both character controller and camera
-        _cameraYaw += mouseDelta.x * _mouseSensitivity * Time.deltaTime;
+        _cameraYaw += mouseDelta.x * _mouseSensitivity;
 
         // Pitch only affects camera
-        _cameraPitch -= mouseDelta.y * _mouseSensitivity * Time.deltaTime;
+        _cameraPitch -= mouseDelta.y * _mouseSensitivity;
         _cameraPitch = Mathf.Clamp(_cameraPitch, -90f, 90f);
 
         // Rotate character controller with yaw
