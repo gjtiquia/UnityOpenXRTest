@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using WebXR;
 
 public class DesktopControllerUI : MonoBehaviour
 {
@@ -8,6 +9,15 @@ public class DesktopControllerUI : MonoBehaviour
     private void Awake()
     {
         _activateDesktopControllerButton.onClick.AddListener(OnActivateDesktopControllerButtonPressed);
+    }
+
+    private void Start()
+    {
+        var isARSupported = WebXRManager.Instance.isSupportedAR;
+        var isVRSupported = WebXRManager.Instance.isSupportedVR;
+
+        if (isARSupported || isVRSupported)
+            _activateDesktopControllerButton.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
