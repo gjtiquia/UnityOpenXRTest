@@ -440,6 +440,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439588100}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &283002807 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1341745107855948499, guid: e9eb1750d8d8bc442b52d26b816b1204, type: 3}
+  m_PrefabInstance: {fileID: 987809646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336426667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3247,6 +3252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DesktopControllerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1529551287928915497, guid: a6a297b59d9c67d4782dcf2c787d1c48, type: 3}
+      propertyPath: _mainCamera
+      value: 
+      objectReference: {fileID: 283002807}
     - target: {fileID: 1529551287928915497, guid: a6a297b59d9c67d4782dcf2c787d1c48, type: 3}
       propertyPath: _characterController
       value: 

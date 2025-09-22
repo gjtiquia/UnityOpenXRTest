@@ -5,6 +5,7 @@ public class DesktopControllerManager : MonoBehaviour
     public static DesktopControllerManager Instance;
 
     [Header("External References")]
+    [SerializeField] private Camera _mainCamera;
     [SerializeField] private CharacterController _characterController;
 
     [Header("Prefabs")]
@@ -24,7 +25,7 @@ public class DesktopControllerManager : MonoBehaviour
 
         var instance = Instantiate(_desktopControllerPrefab);
         instance.gameObject.name = nameof(DesktopController);
-        instance.OnActivate(_characterController);
+        instance.OnActivate(_mainCamera, _characterController);
 
         _desktopControllerInstance = instance;
     }
