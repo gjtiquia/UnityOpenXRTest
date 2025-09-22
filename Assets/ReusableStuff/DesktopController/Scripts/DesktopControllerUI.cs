@@ -18,5 +18,6 @@ public class DesktopControllerUI : MonoBehaviour
     private void OnActivateDesktopControllerButtonPressed()
     {
         DesktopControllerManager.Instance.ActivateDesktopController();
+        _activateDesktopControllerButton.gameObject.SetActive(false);
     }
 }

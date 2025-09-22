@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0aef89967ee1234185437c1de865c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inputActionAsset: {fileID: -944628639613478452, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
+  _keyboardXTranslateAction: {fileID: -2435995061748527091, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
+  _keyboardYTranslateAction: {fileID: 4091624078112751379, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
+  _keyboardZTranslateAction: {fileID: 8957443236229058949, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
+  _moveSpeed: 3
