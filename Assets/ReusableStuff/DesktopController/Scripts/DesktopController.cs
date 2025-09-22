@@ -33,7 +33,7 @@ public class DesktopController : MonoBehaviour
     {
         _mainCamera = mainCamera;
         _characterController = characterController;
-        
+
         Vector3 eulerAngles = _mainCamera.transform.eulerAngles;
         _cameraPitch = eulerAngles.x;
         _cameraYaw = eulerAngles.y;
@@ -51,7 +51,7 @@ public class DesktopController : MonoBehaviour
         float zValue = _keyboardZTranslateAction.action.ReadValue<float>();
 
         Vector3 move = new Vector3(xValue, 0, zValue).normalized;
-        
+
         // Rotate movement vector to match character's current yaw rotation
         move = Quaternion.Euler(0f, _cameraYaw, 0f) * move;
 
@@ -63,19 +63,19 @@ public class DesktopController : MonoBehaviour
         bool isRightMouseHeld = _manipulateHeadAction.action.ReadValue<float>() > 0f;
         if (!isRightMouseHeld)
             return;
-            
+
         Vector2 mouseDelta = _mouseDeltaAction.action.ReadValue<Vector2>();
-        
+
         // Yaw affects both character controller and camera
         _cameraYaw += mouseDelta.x * _mouseSensitivity * Time.deltaTime;
-        
+
         // Pitch only affects camera
         _cameraPitch -= mouseDelta.y * _mouseSensitivity * Time.deltaTime;
         _cameraPitch = Mathf.Clamp(_cameraPitch, -90f, 90f);
-        
+
         // Rotate character controller with yaw
         _characterController.transform.rotation = Quaternion.Euler(0f, _cameraYaw, 0f);
-        
+
         // Apply full rotation to camera (pitch + yaw)
         _mainCamera.transform.rotation = Quaternion.Euler(_cameraPitch, _cameraYaw, 0f);
     }

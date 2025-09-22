@@ -50,4 +50,4 @@ MonoBehaviour:
   _manipulateHeadAction: {fileID: -3619485213038975404, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
   _mouseDeltaAction: {fileID: -1273072440521047205, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
   _moveSpeed: 3
-  _mouseSensitivity: 25
+  _mouseSensitivity: 10
