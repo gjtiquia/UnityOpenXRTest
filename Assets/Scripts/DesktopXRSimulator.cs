@@ -8,6 +8,8 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit.Inputs;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Simulation;
 
+// TODO : still wip! it doesnt realy work because different actions like Move / Turn / SnapTurn all listen to primary2DAxis
+// workaround right now is probably... ignoring XR completely if in desktop mode...?
 public class DesktopXRSimulator : MonoBehaviour
 {
     [Header("Desktop Input")]
@@ -86,15 +88,15 @@ public class DesktopXRSimulator : MonoBehaviour
 
         // Update the controller state directly (Unity XRDeviceSimulator approach)
         Vector2 moveInput = new Vector2(xValue, yValue);
-        
+
         if (m_LeftControllerDevice != null && m_LeftControllerDevice.added)
         {
             // Update the controller state directly
             m_LeftControllerState.primary2DAxis = moveInput;
-            
+
             // Apply the state to the device using InputState.Change
             InputState.Change(m_LeftControllerDevice, m_LeftControllerState);
-            
+
             // Debug log when there's input
             if (xValue != 0f || yValue != 0f)
             {
