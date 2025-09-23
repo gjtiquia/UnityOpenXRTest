@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0aef89967ee1234185437c1de865c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputActionAsset: {fileID: -944628639613478452, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
-  _keyboardXTranslateAction: {fileID: -2435995061748527091, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
-  _keyboardZTranslateAction: {fileID: 8957443236229058949, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
-  _manipulateHeadAction: {fileID: -3619485213038975404, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
-  _mouseDeltaAction: {fileID: -1273072440521047205, guid: 2c0693b7404c4bd4fb97c6b9ec5e2f8a, type: 3}
+  _inputActionAsset: {fileID: -944628639613478452, guid: d03d682b65d2d61768c32197dbaba3f4, type: 3}
+  _xTranslateAction: {fileID: -2435995061748527091, guid: d03d682b65d2d61768c32197dbaba3f4, type: 3}
+  _zTranslateAction: {fileID: 8957443236229058949, guid: d03d682b65d2d61768c32197dbaba3f4, type: 3}
+  _toggleMouseAction: {fileID: -6780995177125596410, guid: d03d682b65d2d61768c32197dbaba3f4, type: 3}
+  _mouseRotationDeltaAction: {fileID: -5681291154727990353, guid: d03d682b65d2d61768c32197dbaba3f4, type: 3}
+  _keyboardRotationAction: {fileID: -1273072440521047205, guid: d03d682b65d2d61768c32197dbaba3f4, type: 3}
   _moveSpeed: 3
   _mouseSensitivity: 0.05
+  _keyboardRotationSensitivity: 9

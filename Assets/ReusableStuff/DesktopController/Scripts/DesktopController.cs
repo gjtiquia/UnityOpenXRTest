@@ -5,14 +5,16 @@ public class DesktopController : MonoBehaviour
 {
     [Header("Desktop Input")]
     [SerializeField] private InputActionAsset _inputActionAsset;
-    [SerializeField] private InputActionReference _keyboardXTranslateAction;
-    [SerializeField] private InputActionReference _keyboardZTranslateAction;
-    [SerializeField] private InputActionReference _manipulateHeadAction;
-    [SerializeField] private InputActionReference _mouseDeltaAction;
+    [SerializeField] private InputActionReference _xTranslateAction;
+    [SerializeField] private InputActionReference _zTranslateAction;
+    [SerializeField] private InputActionReference _toggleMouseAction;
+    [SerializeField] private InputActionReference _mouseRotationDeltaAction;
+    [SerializeField] private InputActionReference _keyboardRotationAction;
 
     [Header("Movement Settings")]
     [SerializeField] private float _moveSpeed = 3f;
     [SerializeField] private float _mouseSensitivity = 2f;
+    [SerializeField] private float _keyboardRotationSensitivity = 100f;
 
     private Camera _mainCamera;
     private CharacterController _characterController;
@@ -47,8 +49,8 @@ public class DesktopController : MonoBehaviour
 
     private void HandleMovement()
     {
-        float xValue = _keyboardXTranslateAction.action.ReadValue<float>();
-        float zValue = _keyboardZTranslateAction.action.ReadValue<float>();
+        float xValue = _xTranslateAction.action.ReadValue<float>();
+        float zValue = _zTranslateAction.action.ReadValue<float>();
 
         Vector3 move = new Vector3(xValue, 0, zValue).normalized;
 
@@ -60,17 +62,32 @@ public class DesktopController : MonoBehaviour
 
     private void HandleCameraRotation()
     {
-        bool isRightMouseHeld = _manipulateHeadAction.action.ReadValue<float>() > 0f;
-        if (!isRightMouseHeld)
+        Vector2 rotationInput = Vector2.zero;
+        
+        // Handle mouse rotation input (right-click drag)
+        bool isRightMouseHeld = _toggleMouseAction.action.ReadValue<float>() > 0f;
+        if (isRightMouseHeld)
+        {
+            Vector2 mouseDelta = _mouseRotationDeltaAction.action.ReadValue<Vector2>();
+            rotationInput = mouseDelta * _mouseSensitivity;
+        }
+        
+        // Handle keyboard rotation input (arrow keys)
+        Vector2 keyboardRotation = _keyboardRotationAction.action.ReadValue<Vector2>();
+        if (keyboardRotation != Vector2.zero)
+        {
+            rotationInput += keyboardRotation * _keyboardRotationSensitivity * Time.deltaTime;
+        }
+        
+        // Exit if no rotation input
+        if (rotationInput == Vector2.zero)
             return;
 
-        Vector2 mouseDelta = _mouseDeltaAction.action.ReadValue<Vector2>();
+        // Yaw affects both character controller and camera (x component of input)
+        _cameraYaw += rotationInput.x;
 
-        // Yaw affects both character controller and camera
-        _cameraYaw += mouseDelta.x * _mouseSensitivity;
-
-        // Pitch only affects camera
-        _cameraPitch -= mouseDelta.y * _mouseSensitivity;
+        // Pitch only affects camera (y component of input, inverted for intuitive control)
+        _cameraPitch -= rotationInput.y;
         _cameraPitch = Mathf.Clamp(_cameraPitch, -90f, 90f);
 
         // Rotate character controller with yaw
